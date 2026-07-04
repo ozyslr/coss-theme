@@ -94,3 +94,19 @@
 .card .price {
   color: var(--coss-body);
 }
+
+/* Quick-add modal — flat Coss panel */
+quick-add-modal .quick-add-modal__content {
+  background: var(--coss-bg);
+  border-radius: 0;
+}
+quick-add-modal .quick-add-modal__content .product__title {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+quick-add-modal .product-form__submit {
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
