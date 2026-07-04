@@ -24,3 +24,25 @@
   --card-corner-radius: 0px;
   --popup-corner-radius: 0px;
 }
+
+/* Announcement bar — Coss TopBar look */
+.announcement-bar__message {
+  font-size: 1rem; /* 10px against Dawn's 62.5% root */
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Header nav links — bold caps micro-type */
+.header__menu-item {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Mega menu panel — flat, bordered, on-brand */
+.mega-menu__content {
+  background-color: var(--coss-bg);
+  border-bottom: 1px solid var(--coss-border);
+}
