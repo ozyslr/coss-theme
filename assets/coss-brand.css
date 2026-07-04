@@ -46,3 +46,51 @@
   background-color: var(--coss-bg);
   border-bottom: 1px solid var(--coss-border);
 }
+
+/* Facet group titles */
+.facets__summary,
+.facets__heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--coss-fg);
+}
+
+/* Filter values as chips (Coss size-chip look) */
+.facets__label {
+  border: 1px solid var(--coss-border);
+  padding: 0.6rem 1.2rem;
+  font-size: 1.2rem;
+  color: var(--coss-body);
+}
+.facets__label:hover {
+  border-color: var(--coss-fg);
+}
+.facets__label:has(input:checked) {
+  background: var(--coss-fg);
+  color: #ffffff;
+  border-color: var(--coss-fg);
+}
+
+/* Native Dawn color swatches — circular with selection ring */
+.swatch,
+.swatch-input__label {
+  border-radius: 50%;
+  border: 1px solid var(--coss-border);
+}
+.swatch-input__input:checked + .swatch-input__label {
+  outline: 2px solid var(--coss-fg);
+  outline-offset: 2px;
+}
+
+/* Product card type */
+.card__heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.card .price {
+  color: var(--coss-body);
+}
