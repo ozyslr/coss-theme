@@ -1,0 +1,26 @@
+/* Coss brand layer — tokens only here; component styles reference them.
+   theme-check baseline: 8 warnings (stock Dawn) — do not exceed. */
+:root {
+  --coss-bg: #FDFDF9;
+  --coss-fg: #212121;
+  --coss-border: #E5E5E1;
+  --coss-muted: #8E8E8A;
+  --coss-body: #555555;
+  --coss-serif: 'Playfair Display', Georgia, serif;
+}
+
+/* Serif italic prices — the Coss signature */
+.price,
+.price__regular,
+.price-item {
+  font-family: var(--coss-serif);
+  font-style: italic;
+}
+
+/* Sharp corners everywhere (Coss uses no border radius) */
+:root {
+  --buttons-radius: 0px;
+  --inputs-radius: 0px;
+  --card-corner-radius: 0px;
+  --popup-corner-radius: 0px;
+}

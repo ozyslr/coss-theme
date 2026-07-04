@@ -1,0 +1,2 @@
+# Editor temp files — keep the dev server from trying to upload them
+*.tmp.*
