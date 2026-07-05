@@ -22,14 +22,25 @@
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
               {%- for link in section.settings.menu.links -%}
+                {%- liquid
+                  assign drawer_image = blank
+                  if link.type == 'collection_link' and link.object != blank
+                    assign drawer_image = link.object.image | default: link.object.products.first.featured_image
+                  endif
+                -%}
                 <li>
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
                       <summary
                         id="HeaderDrawer-{{ link.handle }}"
-                        class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
+                        class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}{% if drawer_image != blank %} menu-drawer__menu-item--with-image{% endif %}"
                       >
-                        {{ link.title | escape }}
+                        {%- if drawer_image != blank -%}
+                          <span class="menu-drawer__menu-item-image">
+                            {{ drawer_image | image_url: width: 120 | image_tag: widths: '60, 120', class: 'menu-drawer__thumb', alt: link.object.title | escape }}
+                          </span>
+                        {%- endif -%}
+                        <span class="menu-drawer__menu-item-text{% if drawer_image != blank %} menu-drawer__menu-item-text--with-image{% endif %}">{{ link.title | escape }}</span>
                         <span class="svg-wrapper">
                           {{- 'icon-arrow.svg' | inline_asset_content -}}
                         </span>
@@ -49,6 +60,12 @@
                             </span>
                             {{ link.title | escape }}
                           </button>
+                          {%- if drawer_image != blank -%}
+                            <a href="{{ link.object.url }}" class="menu-drawer__featured-image-link">
+                              {{ drawer_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'menu-drawer__featured-img', alt: link.object.title | escape }}
+                              <span class="menu-drawer__featured-caption">{{ link.object.title | escape }} &rarr;</span>
+                            </a>
+                          {%- endif -%}
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
                               <li>

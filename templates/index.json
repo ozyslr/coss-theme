@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -7,8 +16,7 @@
           "type": "caption",
           "settings": {
             "caption": "COSS BOSS",
-            "text_style": "caption-with-letter-spacing",
-            "caption_size": "medium"
+            "text_style": "caption-with-letter-spacing"
           }
         },
         "hero-heading": {
@@ -33,7 +41,12 @@
           }
         }
       },
-      "block_order": ["hero-caption", "hero-heading", "hero-text", "hero-button"],
+      "block_order": [
+        "hero-caption",
+        "hero-heading",
+        "hero-text",
+        "hero-button"
+      ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -48,18 +61,28 @@
       "blocks": {
         "col-fashion": {
           "type": "featured_collection",
-          "settings": { "collection": "fashion" }
+          "settings": {
+            "collection": "fashion"
+          }
         },
         "col-socks": {
           "type": "featured_collection",
-          "settings": { "collection": "socks" }
+          "settings": {
+            "collection": "socks"
+          }
         },
         "col-sportswear": {
           "type": "featured_collection",
-          "settings": { "collection": "sportswear" }
+          "settings": {
+            "collection": "sportswear"
+          }
         }
       },
-      "block_order": ["col-fashion", "col-socks", "col-sportswear"],
+      "block_order": [
+        "col-fashion",
+        "col-socks",
+        "col-sportswear"
+      ],
       "settings": {
         "title": "Shop by Category",
         "heading_size": "h1",
@@ -76,18 +99,18 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
+        "collection": "best-sellers",
+        "products_to_show": 8,
         "title": "Best Sellers",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "best-sellers",
-        "products_to_show": 8,
         "columns_desktop": 4,
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "outline",
-        "enable_desktop_slider": false,
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "show_secondary_image": true,
@@ -140,17 +163,22 @@
           }
         }
       },
-      "block_order": ["value-1", "value-2", "value-3", "value-4"],
+      "block_order": [
+        "value-1",
+        "value-2",
+        "value-3",
+        "value-4"
+      ],
       "settings": {
         "title": "Why Coss Boss",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 4,
         "column_alignment": "center",
         "background_style": "none",
-        "button_label": "",
-        "button_link": "",
         "color_scheme": "scheme-2",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
@@ -179,7 +207,11 @@
           "settings": {}
         }
       },
-      "block_order": ["newsletter-heading", "newsletter-text", "newsletter-form"],
+      "block_order": [
+        "newsletter-heading",
+        "newsletter-text",
+        "newsletter-form"
+      ],
       "settings": {
         "color_scheme": "scheme-4",
         "full_width": true,
