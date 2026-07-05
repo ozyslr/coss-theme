@@ -50,16 +50,16 @@
           "type": "featured_collection",
           "settings": { "collection": "fashion" }
         },
-        "col-electronics": {
+        "col-socks": {
           "type": "featured_collection",
-          "settings": { "collection": "electronics" }
+          "settings": { "collection": "socks" }
         },
-        "col-home": {
+        "col-sportswear": {
           "type": "featured_collection",
-          "settings": { "collection": "home" }
+          "settings": { "collection": "sportswear" }
         }
       },
-      "block_order": ["col-fashion", "col-electronics", "col-home"],
+      "block_order": ["col-fashion", "col-socks", "col-sportswear"],
       "settings": {
         "title": "Shop by Category",
         "heading_size": "h1",
