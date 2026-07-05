@@ -47,6 +47,39 @@
   border-bottom: 1px solid var(--coss-border);
 }
 
+/* Mega menu featured collection image (Coss MegaMenu look) */
+.mega-menu__inner--with-image {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+.mega-menu__inner--with-image .mega-menu__list {
+  flex: 1;
+}
+.mega-menu__featured {
+  display: block;
+  width: 26rem;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.mega-menu__featured-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--coss-border);
+}
+.mega-menu__featured-caption {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--coss-fg);
+}
+
 /* Facet group titles */
 .facets__summary,
 .facets__heading {

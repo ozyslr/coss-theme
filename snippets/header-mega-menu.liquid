@@ -30,8 +30,15 @@
                 class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
+                {%- liquid
+                  assign mega_image = blank
+                  if link.type == 'collection_link' and link.object != blank
+                    assign mega_image = link.object.image | default: link.object.products.first.featured_image
+                  endif
+                -%}
+                <div class="mega-menu__inner page-width{% if mega_image != blank %} mega-menu__inner--with-image{% endif %}">
                 <ul
-                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                  class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
                   role="list"
                 >
                   {%- for childlink in link.links -%}
@@ -67,6 +74,17 @@
                     </li>
                   {%- endfor -%}
                 </ul>
+                {%- if mega_image != blank -%}
+                  <a href="{{ link.object.url }}" class="mega-menu__featured link">
+                    {{
+                      mega_image
+                      | image_url: width: 535
+                      | image_tag: widths: '360, 535', class: 'mega-menu__featured-image', alt: link.object.title
+                    }}
+                    <span class="mega-menu__featured-caption">{{ link.object.title | escape }} &rarr;</span>
+                  </a>
+                {%- endif -%}
+                </div>
               </div>
             </details>
           </header-menu>
