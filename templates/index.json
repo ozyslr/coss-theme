@@ -1,75 +1,198 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "rich-text",
       "blocks": {
-        "heading": {
+        "hero-caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "COSS BOSS",
+            "text_style": "caption-with-letter-spacing",
+            "caption_size": "medium"
+          }
+        },
+        "hero-heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
+            "heading": "Engineered for everyday movement",
             "heading_size": "h0"
           }
         },
-        "button": {
-          "type": "buttons",
+        "hero-text": {
+          "type": "text",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "text": "<p>Premium socks and active essentials for everyday movement.</p>"
+          }
+        },
+        "hero-button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop All",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
           }
         }
       },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+      "block_order": ["hero-caption", "hero-heading", "hero-text", "hero-button"],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "col-socks": {
+          "type": "featured_collection",
+          "settings": { "collection": "socks" }
+        },
+        "col-sportswear": {
+          "type": "featured_collection",
+          "settings": { "collection": "sportswear" }
+        },
+        "col-bundles": {
+          "type": "featured_collection",
+          "settings": { "collection": "bundles" }
+        }
+      },
+      "block_order": ["col-socks", "col-sportswear", "col-bundles"],
+      "settings": {
+        "title": "Shop by Category",
+        "heading_size": "h1",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 36
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
+        "title": "Best Sellers",
+        "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
+        "collection": "best-sellers",
         "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "outline",
         "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
+        "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 60
+      }
+    },
+    "brand_values": {
+      "type": "multicolumn",
+      "blocks": {
+        "value-1": {
+          "type": "column",
+          "settings": {
+            "title": "Breathable Comfort",
+            "text": "<p>Technically advanced yarns for all-day freshness.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "value-2": {
+          "type": "column",
+          "settings": {
+            "title": "Reinforced Quality",
+            "text": "<p>Double-stitched seams and high-density cotton.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "value-3": {
+          "type": "column",
+          "settings": {
+            "title": "Everyday Fit",
+            "text": "<p>Designed to move with you, from work to workout.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "value-4": {
+          "type": "column",
+          "settings": {
+            "title": "Easy Returns",
+            "text": "<p>30-day hassle-free returns policy worldwide.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["value-1", "value-2", "value-3", "value-4"],
+      "settings": {
+        "title": "Why Coss Boss",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "newsletter-heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join the movement",
+            "heading_size": "h1"
+          }
+        },
+        "newsletter-text": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Sign up for early access to drops and members-only offers.</p>"
+          }
+        },
+        "newsletter-form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": ["newsletter-heading", "newsletter-text", "newsletter-form"],
+      "settings": {
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero",
+    "collection_list",
+    "featured_collection",
+    "brand_values",
+    "newsletter"
   ]
 }
