@@ -112,6 +112,59 @@
         "padding_bottom": 28
       }
     },
+    "editorial_grid": {
+      "type": "coss-editorial-grid",
+      "blocks": {
+        "studio": {
+          "type": "card",
+          "settings": {
+            "collection": "performance-socks",
+            "kicker": "STUDIO MOVEMENT",
+            "title": "Pilates, barre and studio grip.",
+            "text": "Soft grip socks for clean movement and confident studio sessions."
+          }
+        },
+        "football": {
+          "type": "card",
+          "settings": {
+            "collection": "socks",
+            "kicker": "FOOTBALL TRAINING",
+            "title": "Grip for high-movement days.",
+            "text": "Training socks made for pace, control and active routines."
+          }
+        },
+        "activewear": {
+          "type": "card",
+          "settings": {
+            "collection": "activewear-essentials",
+            "kicker": "ACTIVEWEAR",
+            "title": "Clean sets for everyday training.",
+            "text": "Leggings, shorts, tops and coordinated pieces for active days."
+          }
+        },
+        "colorful": {
+          "type": "card",
+          "settings": {
+            "collection": "socks",
+            "kicker": "COLORFUL ROTATION",
+            "title": "Daily socks with personality.",
+            "text": "Colorful multipacks for smart casual, gifting and everyday wear."
+          }
+        }
+      },
+      "block_order": [
+        "studio",
+        "football",
+        "activewear",
+        "colorful"
+      ],
+      "settings": {
+        "kicker": "SHOP BY MOVEMENT",
+        "heading": "One brand for studio, training and everyday movement.",
+        "text": "Coss Boss brings together premium socks and active essentials with a clean, modern look designed for daily rotation.",
+        "color_scheme": "scheme-1"
+      }
+    },
     "performance_socks": {
       "type": "featured-collection",
       "settings": {
@@ -281,6 +334,7 @@
   "order": [
     "hero",
     "trust_bar",
+    "editorial_grid",
     "performance_socks",
     "editorial_movement",
     "activewear_essentials",
