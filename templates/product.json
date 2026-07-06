@@ -69,10 +69,18 @@
         "padding_bottom": 12
       }
     },
+    "coss_product_story": {
+      "type": "coss-product-story",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 32,
+        "padding_bottom": 36
+      }
+    },
     "disclosures": {
       "type": "disclosures",
       "settings": {
-        "padding_top": 36,
+        "padding_top": 20,
         "padding_bottom": 0
       }
     },
@@ -97,6 +105,7 @@
   },
   "order": [
     "main",
+    "coss_product_story",
     "disclosures",
     "related-products"
   ]
