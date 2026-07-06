@@ -1,6 +1,6 @@
 {% comment %}
   Coss Boss curated desktop mega menu.
-  This prevents New Arrivals and Best Sellers from appearing in header dropdowns.
+  Enhanced with new Phase 4 collections and reliable desktop hover opening.
 {% endcomment %}
 
 {%- liquid
@@ -8,13 +8,18 @@
   assign activewear_essentials = collections['activewear-essentials']
   assign socks_collection = collections['socks']
   assign sportswear_collection = collections['sportswear']
+  assign studio_movement = collections['studio-movement']
+  assign football_training = collections['football-training']
+  assign everyday_rotation = collections['everyday-rotation']
+  assign gym_travel = collections['gym-travel-essentials']
+  assign bundles_collection = collections['bundles']
 -%}
 
-<nav class="header__inline-menu coss-header-menu">
+<nav class="header__inline-menu coss-header-menu" data-coss-hover-menu>
   <ul class="list-menu list-menu--inline" role="list">
     <li>
       <header-menu>
-        <details class="mega-menu coss-mega-menu">
+        <details class="mega-menu coss-mega-menu coss-hover-disclosure">
           <summary class="header__menu-item list-menu__item link focus-inset">
             <span>Socks</span>{{- 'icon-caret.svg' | inline_asset_content -}}
           </summary>
@@ -23,26 +28,31 @@
               <div class="coss-mega-menu__links">
                 <p class="coss-mega-menu__eyebrow">Premium Socks</p>
                 <a href="{{ performance_socks.url | default: routes.collections_url }}" class="coss-mega-menu__link">Performance Socks</a>
-                <a href="{{ performance_socks.url | default: routes.collections_url }}" class="coss-mega-menu__link">Pilates Grip Socks</a>
-                <a href="{{ socks_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Football Grip Socks</a>
-                <a href="{{ socks_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Colorful Socks</a>
+                <a href="{{ studio_movement.url | default: performance_socks.url | default: routes.collections_url }}" class="coss-mega-menu__link">Pilates Grip Socks</a>
+                <a href="{{ football_training.url | default: socks_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Football Grip Socks</a>
+                <a href="{{ everyday_rotation.url | default: socks_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Everyday Rotation</a>
+                <a href="{{ bundles_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Sock Bundles</a>
               </div>
               <div class="coss-mega-menu__cards">
-                <a href="{{ performance_socks.url | default: routes.collections_url }}" class="coss-mega-card">
-                  {%- if performance_socks.image != blank -%}
-                    {{ performance_socks.image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Performance Socks' }}
+                <a href="{{ studio_movement.url | default: performance_socks.url | default: routes.collections_url }}" class="coss-mega-card">
+                  {%- if studio_movement.image != blank -%}
+                    {{ studio_movement.image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Studio Movement' }}
+                  {%- elsif studio_movement.products.first.featured_image != blank -%}
+                    {{ studio_movement.products.first.featured_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Studio Movement' }}
                   {%- elsif performance_socks.products.first.featured_image != blank -%}
-                    {{ performance_socks.products.first.featured_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Performance Socks' }}
+                    {{ performance_socks.products.first.featured_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Studio Movement' }}
                   {%- endif -%}
-                  <span>Shop Performance</span>
+                  <span>Studio Movement</span>
                 </a>
-                <a href="{{ socks_collection.url | default: routes.collections_url }}" class="coss-mega-card">
-                  {%- if socks_collection.image != blank -%}
-                    {{ socks_collection.image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Premium Socks' }}
+                <a href="{{ football_training.url | default: socks_collection.url | default: routes.collections_url }}" class="coss-mega-card">
+                  {%- if football_training.image != blank -%}
+                    {{ football_training.image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Football Training' }}
+                  {%- elsif football_training.products.first.featured_image != blank -%}
+                    {{ football_training.products.first.featured_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Football Training' }}
                   {%- elsif socks_collection.products.first.featured_image != blank -%}
-                    {{ socks_collection.products.first.featured_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Premium Socks' }}
+                    {{ socks_collection.products.first.featured_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Football Training' }}
                   {%- endif -%}
-                  <span>Studio & Colorful Socks</span>
+                  <span>Football Training</span>
                 </a>
               </div>
             </div>
@@ -53,7 +63,7 @@
 
     <li>
       <header-menu>
-        <details class="mega-menu coss-mega-menu">
+        <details class="mega-menu coss-mega-menu coss-hover-disclosure">
           <summary class="header__menu-item list-menu__item link focus-inset">
             <span>Activewear</span>{{- 'icon-caret.svg' | inline_asset_content -}}
           </summary>
@@ -65,6 +75,7 @@
                 <a href="{{ activewear_essentials.url | default: routes.collections_url }}" class="coss-mega-menu__link">Shorts</a>
                 <a href="{{ activewear_essentials.url | default: routes.collections_url }}" class="coss-mega-menu__link">Active Sets</a>
                 <a href="{{ activewear_essentials.url | default: routes.collections_url }}" class="coss-mega-menu__link">Active Tops</a>
+                <a href="{{ bundles_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Activewear Bundles</a>
               </div>
               <div class="coss-mega-menu__cards">
                 <a href="{{ activewear_essentials.url | default: routes.collections_url }}" class="coss-mega-card">
@@ -92,7 +103,7 @@
 
     <li>
       <header-menu>
-        <details class="mega-menu coss-mega-menu">
+        <details class="mega-menu coss-mega-menu coss-hover-disclosure">
           <summary class="header__menu-item list-menu__item link focus-inset">
             <span>Accessories</span>{{- 'icon-caret.svg' | inline_asset_content -}}
           </summary>
@@ -100,9 +111,10 @@
             <div class="coss-mega-menu__inner page-width coss-mega-menu__inner--simple">
               <div class="coss-mega-menu__links">
                 <p class="coss-mega-menu__eyebrow">Everyday Utility</p>
-                <a href="{{ routes.collections_url }}" class="coss-mega-menu__link">Gym Towels</a>
-                <a href="{{ routes.collections_url }}" class="coss-mega-menu__link">Laundry Care</a>
-                <a href="{{ routes.collections_url }}" class="coss-mega-menu__link">Travel Essentials</a>
+                <a href="{{ gym_travel.url | default: routes.collections_url }}" class="coss-mega-menu__link">Gym Towels</a>
+                <a href="{{ gym_travel.url | default: routes.collections_url }}" class="coss-mega-menu__link">Laundry Care</a>
+                <a href="{{ gym_travel.url | default: routes.collections_url }}" class="coss-mega-menu__link">Travel Essentials</a>
+                <a href="{{ bundles_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Accessory Bundles</a>
               </div>
               <div class="coss-mega-menu__editorial"><strong>Premium & Active Basics</strong><span>Small essentials for daily movement.</span></div>
             </div>
@@ -113,19 +125,20 @@
 
     <li>
       <header-menu>
-        <details class="mega-menu coss-mega-menu">
+        <details class="mega-menu coss-mega-menu coss-hover-disclosure">
           <summary class="header__menu-item list-menu__item link focus-inset">
-            <span>Gift Guide</span>{{- 'icon-caret.svg' | inline_asset_content -}}
+            <span>Bundles</span>{{- 'icon-caret.svg' | inline_asset_content -}}
           </summary>
           <div class="mega-menu__content coss-mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup" tabindex="-1">
             <div class="coss-mega-menu__inner page-width coss-mega-menu__inner--simple">
               <div class="coss-mega-menu__links">
-                <p class="coss-mega-menu__eyebrow">Curated Gifts</p>
-                <a href="{{ performance_socks.url | default: routes.collections_url }}" class="coss-mega-menu__link">Sock Gift Sets</a>
-                <a href="{{ socks_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Colorful Multipacks</a>
-                <a href="{{ performance_socks.url | default: routes.collections_url }}" class="coss-mega-menu__link">Studio Essentials</a>
+                <p class="coss-mega-menu__eyebrow">Curated Sets</p>
+                <a href="{{ bundles_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">All Bundles</a>
+                <a href="{{ studio_movement.url | default: routes.collections_url }}" class="coss-mega-menu__link">Studio Starter Kit</a>
+                <a href="{{ football_training.url | default: routes.collections_url }}" class="coss-mega-menu__link">Football Training Kit</a>
+                <a href="{{ everyday_rotation.url | default: routes.collections_url }}" class="coss-mega-menu__link">Everyday Sock Packs</a>
               </div>
-              <div class="coss-mega-menu__editorial"><strong>Easy gifting, premium feel.</strong><span>Comfort-first essentials for active routines.</span></div>
+              <div class="coss-mega-menu__editorial"><strong>Easy gifting, premium feel.</strong><span>Ready-to-shop packs for movement and daily rotation.</span></div>
             </div>
           </div>
         </details>
@@ -133,24 +146,36 @@
     </li>
 
     <li>
-      <header-menu>
-        <details class="mega-menu coss-mega-menu">
-          <summary class="header__menu-item list-menu__item link focus-inset">
-            <span>About Coss Boss</span>{{- 'icon-caret.svg' | inline_asset_content -}}
-          </summary>
-          <div class="mega-menu__content coss-mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup" tabindex="-1">
-            <div class="coss-mega-menu__inner page-width coss-mega-menu__inner--simple">
-              <div class="coss-mega-menu__links">
-                <p class="coss-mega-menu__eyebrow">The Brand</p>
-                <a href="{{ routes.root_url }}" class="coss-mega-menu__link">Brand Story</a>
-                <a href="{{ routes.root_url }}" class="coss-mega-menu__link">Premium & Active Basics</a>
-                <a href="{{ routes.root_url }}" class="coss-mega-menu__link">Care Guide</a>
-              </div>
-              <div class="coss-mega-menu__editorial"><strong>COSS BOSS</strong><span>Engineered for everyday movement.</span></div>
-            </div>
-          </div>
-        </details>
-      </header-menu>
+      <a href="{{ routes.root_url }}" class="header__menu-item list-menu__item link link--text focus-inset">
+        <span>About Coss Boss</span>
+      </a>
     </li>
   </ul>
 </nav>
+
+<script>
+  (() => {
+    const disclosures = document.querySelectorAll('[data-coss-hover-menu] details.coss-hover-disclosure');
+    if (!disclosures.length) return;
+
+    disclosures.forEach((details) => {
+      let closeTimer;
+      const open = () => {
+        if (!window.matchMedia('(min-width: 990px)').matches) return;
+        window.clearTimeout(closeTimer);
+        disclosures.forEach((item) => {
+          if (item !== details) item.removeAttribute('open');
+        });
+        details.setAttribute('open', '');
+      };
+      const close = () => {
+        if (!window.matchMedia('(min-width: 990px)').matches) return;
+        closeTimer = window.setTimeout(() => details.removeAttribute('open'), 160);
+      };
+      details.addEventListener('mouseenter', open);
+      details.addEventListener('focusin', open);
+      details.addEventListener('mouseleave', close);
+      details.addEventListener('focusout', close);
+    });
+  })();
+</script>
