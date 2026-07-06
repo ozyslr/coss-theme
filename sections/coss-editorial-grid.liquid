@@ -1,0 +1,257 @@
+{% comment %}
+  Coss Boss editorial storefront grid.
+{% endcomment %}
+
+<section class="coss-editorial-grid color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="coss-editorial-grid__header">
+      <p class="coss-editorial-grid__kicker">{{ section.settings.kicker }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+    </div>
+
+    <div class="coss-editorial-grid__cards">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign image = block.settings.image
+          if image == blank and block.settings.collection != blank
+            assign image = block.settings.collection.image | default: block.settings.collection.products.first.featured_image
+          endif
+        -%}
+        <a class="coss-editorial-card" href="{{ block.settings.link | default: block.settings.collection.url | default: routes.collections_url }}" {{ block.shopify_attributes }}>
+          <div class="coss-editorial-card__media">
+            {%- if image != blank -%}
+              {{ image | image_url: width: 1100 | image_tag: widths: '420, 650, 900, 1100', class: 'coss-editorial-card__image', loading: 'lazy', alt: block.settings.title | escape }}
+            {%- else -%}
+              {{ 'collection-apparel-1' | placeholder_svg_tag: 'coss-editorial-card__placeholder' }}
+            {%- endif -%}
+          </div>
+          <div class="coss-editorial-card__content">
+            <span>{{ block.settings.kicker }}</span>
+            <strong>{{ block.settings.title }}</strong>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .coss-editorial-grid {
+    padding: 7rem 0;
+    background: #f7f4ef;
+  }
+
+  .coss-editorial-grid__header {
+    max-width: 76rem;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .coss-editorial-grid__kicker,
+  .coss-editorial-card__content span {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    opacity: 0.65;
+  }
+
+  .coss-editorial-grid__header h2 {
+    margin: 1rem 0 1.4rem;
+    font-size: clamp(3.2rem, 5vw, 6.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+  }
+
+  .coss-editorial-grid__header p:last-child {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    opacity: 0.76;
+    margin: 0;
+  }
+
+  .coss-editorial-grid__cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.8rem;
+  }
+
+  .coss-editorial-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 42rem;
+    border-radius: 2.4rem;
+    color: #fff;
+    text-decoration: none;
+    background: #111;
+    isolation: isolate;
+  }
+
+  .coss-editorial-card:first-child,
+  .coss-editorial-card:nth-child(4) {
+    grid-column: span 2;
+  }
+
+  .coss-editorial-card__media,
+  .coss-editorial-card__media::after {
+    position: absolute;
+    inset: 0;
+  }
+
+  .coss-editorial-card__media::after {
+    content: '';
+    background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.72));
+    z-index: 1;
+  }
+
+  .coss-editorial-card__image,
+  .coss-editorial-card__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 500ms ease;
+  }
+
+  .coss-editorial-card:hover .coss-editorial-card__image {
+    transform: scale(1.055);
+  }
+
+  .coss-editorial-card__content {
+    position: absolute;
+    left: 2.2rem;
+    right: 2.2rem;
+    bottom: 2.2rem;
+    z-index: 2;
+  }
+
+  .coss-editorial-card__content strong {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: clamp(2.4rem, 3vw, 4.2rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .coss-editorial-card__content p {
+    max-width: 42rem;
+    margin: 1rem 0 0;
+    color: rgba(255,255,255,0.76);
+    line-height: 1.45;
+  }
+
+  @media screen and (max-width: 989px) {
+    .coss-editorial-grid__cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .coss-editorial-card:first-child,
+    .coss-editorial-card:nth-child(4) {
+      grid-column: span 2;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .coss-editorial-grid {
+      padding: 5rem 0;
+    }
+
+    .coss-editorial-grid__cards {
+      grid-template-columns: 1fr;
+    }
+
+    .coss-editorial-card,
+    .coss-editorial-card:first-child,
+    .coss-editorial-card:nth-child(4) {
+      grid-column: span 1;
+      min-height: 34rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Coss editorial grid",
+  "tag": "section",
+  "class": "section section-coss-editorial-grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "SHOP BY MOVEMENT"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "One brand for studio, training and everyday movement."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Coss Boss brings together premium socks and active essentials with a clean, modern look designed for daily rotation."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Editorial card",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "COSS BOSS"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Premium Movement"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Active basics designed for everyday comfort."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Coss editorial grid",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}
