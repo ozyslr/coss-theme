@@ -1,112 +1,156 @@
 {% comment %}
-  Renders a megamenu for the header.
-
-  Usage:
-  {% render 'header-mega-menu' %}
+  Coss Boss curated desktop mega menu.
+  This prevents New Arrivals and Best Sellers from appearing in header dropdowns.
 {% endcomment %}
 
-<nav class="header__inline-menu">
+{%- liquid
+  assign performance_socks = collections['performance-socks']
+  assign activewear_essentials = collections['activewear-essentials']
+  assign socks_collection = collections['socks']
+  assign sportswear_collection = collections['sportswear']
+-%}
+
+<nav class="header__inline-menu coss-header-menu">
   <ul class="list-menu list-menu--inline" role="list">
-    {%- for link in section.settings.menu.links -%}
-      <li>
-        {%- if link.links != blank -%}
-          <header-menu>
-            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
-              <summary
-                id="HeaderMenu-{{ link.handle }}"
-                class="header__menu-item list-menu__item link focus-inset"
-              >
-                <span
-                  {%- if link.child_active %}
-                    class="header__active-menu-item"
-                  {% endif %}
-                >
-                  {{- link.title | escape -}}
-                </span>
-                {{- 'icon-caret.svg' | inline_asset_content -}}
-              </summary>
-              <div
-                id="MegaMenu-Content-{{ forloop.index }}"
-                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
-                tabindex="-1"
-              >
-                {%- liquid
-                  assign mega_image = blank
-                  if link.type == 'collection_link' and link.object != blank
-                    assign mega_image = link.object.image | default: link.object.products.first.featured_image
-                  endif
-                -%}
-                <div class="mega-menu__inner page-width{% if mega_image != blank %} mega-menu__inner--with-image{% endif %}">
-                <ul
-                  class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
-                  role="list"
-                >
-                  {%- for childlink in link.links -%}
-                    <li>
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title | escape }}
-                      </a>
-                      {%- if childlink.links != blank -%}
-                        <ul class="list-unstyled" role="list">
-                          {%- for grandchildlink in childlink.links -%}
-                            <li>
-                              <a
-                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url }}"
-                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
-                                {% if grandchildlink.current %}
-                                  aria-current="page"
-                                {% endif %}
-                              >
-                                {{ grandchildlink.title | escape }}
-                              </a>
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      {%- endif -%}
-                    </li>
-                  {%- endfor -%}
-                </ul>
-                {%- if mega_image != blank -%}
-                  <a href="{{ link.object.url }}" class="mega-menu__featured link">
-                    {{
-                      mega_image
-                      | image_url: width: 535
-                      | image_tag: widths: '360, 535', class: 'mega-menu__featured-image', alt: link.object.title
-                    }}
-                    <span class="mega-menu__featured-caption">{{ link.object.title | escape }} &rarr;</span>
-                  </a>
-                {%- endif -%}
-                </div>
+    <li>
+      <header-menu>
+        <details class="mega-menu coss-mega-menu">
+          <summary class="header__menu-item list-menu__item link focus-inset">
+            <span>Socks</span>{{- 'icon-caret.svg' | inline_asset_content -}}
+          </summary>
+          <div class="mega-menu__content coss-mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup" tabindex="-1">
+            <div class="coss-mega-menu__inner page-width">
+              <div class="coss-mega-menu__links">
+                <p class="coss-mega-menu__eyebrow">Premium Socks</p>
+                <a href="{{ performance_socks.url | default: routes.collections_url }}" class="coss-mega-menu__link">Performance Socks</a>
+                <a href="{{ performance_socks.url | default: routes.collections_url }}" class="coss-mega-menu__link">Pilates Grip Socks</a>
+                <a href="{{ socks_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Football Grip Socks</a>
+                <a href="{{ socks_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Colorful Socks</a>
               </div>
-            </details>
-          </header-menu>
-        {%- else -%}
-          <a
-            id="HeaderMenu-{{ link.handle }}"
-            href="{{ link.url }}"
-            class="header__menu-item list-menu__item link link--text focus-inset"
-            {% if link.current %}
-              aria-current="page"
-            {% endif %}
-          >
-            <span
-              {%- if link.current %}
-                class="header__active-menu-item"
-              {% endif %}
-            >
-              {{- link.title | escape -}}
-            </span>
-          </a>
-        {%- endif -%}
-      </li>
-    {%- endfor -%}
+              <div class="coss-mega-menu__cards">
+                <a href="{{ performance_socks.url | default: routes.collections_url }}" class="coss-mega-card">
+                  {%- if performance_socks.image != blank -%}
+                    {{ performance_socks.image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Performance Socks' }}
+                  {%- elsif performance_socks.products.first.featured_image != blank -%}
+                    {{ performance_socks.products.first.featured_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Performance Socks' }}
+                  {%- endif -%}
+                  <span>Shop Performance</span>
+                </a>
+                <a href="{{ socks_collection.url | default: routes.collections_url }}" class="coss-mega-card">
+                  {%- if socks_collection.image != blank -%}
+                    {{ socks_collection.image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Premium Socks' }}
+                  {%- elsif socks_collection.products.first.featured_image != blank -%}
+                    {{ socks_collection.products.first.featured_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Premium Socks' }}
+                  {%- endif -%}
+                  <span>Studio & Colorful Socks</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </details>
+      </header-menu>
+    </li>
+
+    <li>
+      <header-menu>
+        <details class="mega-menu coss-mega-menu">
+          <summary class="header__menu-item list-menu__item link focus-inset">
+            <span>Activewear</span>{{- 'icon-caret.svg' | inline_asset_content -}}
+          </summary>
+          <div class="mega-menu__content coss-mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup" tabindex="-1">
+            <div class="coss-mega-menu__inner page-width">
+              <div class="coss-mega-menu__links">
+                <p class="coss-mega-menu__eyebrow">Active Essentials</p>
+                <a href="{{ activewear_essentials.url | default: routes.collections_url }}" class="coss-mega-menu__link">Leggings</a>
+                <a href="{{ activewear_essentials.url | default: routes.collections_url }}" class="coss-mega-menu__link">Shorts</a>
+                <a href="{{ activewear_essentials.url | default: routes.collections_url }}" class="coss-mega-menu__link">Active Sets</a>
+                <a href="{{ activewear_essentials.url | default: routes.collections_url }}" class="coss-mega-menu__link">Active Tops</a>
+              </div>
+              <div class="coss-mega-menu__cards">
+                <a href="{{ activewear_essentials.url | default: routes.collections_url }}" class="coss-mega-card">
+                  {%- if activewear_essentials.image != blank -%}
+                    {{ activewear_essentials.image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Activewear Essentials' }}
+                  {%- elsif activewear_essentials.products.first.featured_image != blank -%}
+                    {{ activewear_essentials.products.first.featured_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Activewear Essentials' }}
+                  {%- endif -%}
+                  <span>Explore Activewear</span>
+                </a>
+                <a href="{{ sportswear_collection.url | default: routes.collections_url }}" class="coss-mega-card">
+                  {%- if sportswear_collection.image != blank -%}
+                    {{ sportswear_collection.image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Sportswear' }}
+                  {%- elsif sportswear_collection.products.first.featured_image != blank -%}
+                    {{ sportswear_collection.products.first.featured_image | image_url: width: 600 | image_tag: widths: '300, 450, 600', class: 'coss-mega-card__image', alt: 'Sportswear' }}
+                  {%- endif -%}
+                  <span>Everyday Movement</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </details>
+      </header-menu>
+    </li>
+
+    <li>
+      <header-menu>
+        <details class="mega-menu coss-mega-menu">
+          <summary class="header__menu-item list-menu__item link focus-inset">
+            <span>Accessories</span>{{- 'icon-caret.svg' | inline_asset_content -}}
+          </summary>
+          <div class="mega-menu__content coss-mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup" tabindex="-1">
+            <div class="coss-mega-menu__inner page-width coss-mega-menu__inner--simple">
+              <div class="coss-mega-menu__links">
+                <p class="coss-mega-menu__eyebrow">Everyday Utility</p>
+                <a href="{{ routes.collections_url }}" class="coss-mega-menu__link">Gym Towels</a>
+                <a href="{{ routes.collections_url }}" class="coss-mega-menu__link">Laundry Care</a>
+                <a href="{{ routes.collections_url }}" class="coss-mega-menu__link">Travel Essentials</a>
+              </div>
+              <div class="coss-mega-menu__editorial"><strong>Premium & Active Basics</strong><span>Small essentials for daily movement.</span></div>
+            </div>
+          </div>
+        </details>
+      </header-menu>
+    </li>
+
+    <li>
+      <header-menu>
+        <details class="mega-menu coss-mega-menu">
+          <summary class="header__menu-item list-menu__item link focus-inset">
+            <span>Gift Guide</span>{{- 'icon-caret.svg' | inline_asset_content -}}
+          </summary>
+          <div class="mega-menu__content coss-mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup" tabindex="-1">
+            <div class="coss-mega-menu__inner page-width coss-mega-menu__inner--simple">
+              <div class="coss-mega-menu__links">
+                <p class="coss-mega-menu__eyebrow">Curated Gifts</p>
+                <a href="{{ performance_socks.url | default: routes.collections_url }}" class="coss-mega-menu__link">Sock Gift Sets</a>
+                <a href="{{ socks_collection.url | default: routes.collections_url }}" class="coss-mega-menu__link">Colorful Multipacks</a>
+                <a href="{{ performance_socks.url | default: routes.collections_url }}" class="coss-mega-menu__link">Studio Essentials</a>
+              </div>
+              <div class="coss-mega-menu__editorial"><strong>Easy gifting, premium feel.</strong><span>Comfort-first essentials for active routines.</span></div>
+            </div>
+          </div>
+        </details>
+      </header-menu>
+    </li>
+
+    <li>
+      <header-menu>
+        <details class="mega-menu coss-mega-menu">
+          <summary class="header__menu-item list-menu__item link focus-inset">
+            <span>About Coss Boss</span>{{- 'icon-caret.svg' | inline_asset_content -}}
+          </summary>
+          <div class="mega-menu__content coss-mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup" tabindex="-1">
+            <div class="coss-mega-menu__inner page-width coss-mega-menu__inner--simple">
+              <div class="coss-mega-menu__links">
+                <p class="coss-mega-menu__eyebrow">The Brand</p>
+                <a href="{{ routes.root_url }}" class="coss-mega-menu__link">Brand Story</a>
+                <a href="{{ routes.root_url }}" class="coss-mega-menu__link">Premium & Active Basics</a>
+                <a href="{{ routes.root_url }}" class="coss-mega-menu__link">Care Guide</a>
+              </div>
+              <div class="coss-mega-menu__editorial"><strong>COSS BOSS</strong><span>Engineered for everyday movement.</span></div>
+            </div>
+          </div>
+        </details>
+      </header-menu>
+    </li>
   </ul>
 </nav>
