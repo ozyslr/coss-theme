@@ -7,7 +7,6 @@
   - block: {Object} block object.
   - picker_type: {String} type of picker to dispay
 
-
   Usage:
   {% render 'product-variant-options',
     product: product,
@@ -37,6 +36,17 @@
     if value.available
       assign option_disabled = false
     endif
+
+    assign clean_value = value | append: ''
+    assign clean_value = clean_value | replace: '（Old）', '' | replace: '(Old)', '' | replace: '(Normal)', ''
+    assign clean_value = clean_value | replace: 'Eu39-45', 'EU 39–45' | replace: 'Eu 39-45', 'EU 39–45' | replace: 'Eu 35-39', 'EU 35–39'
+    assign clean_value = clean_value | replace: '0-0 6 Pairs', '6 Pairs'
+    assign clean_value = clean_value | replace: '1Pair-', '1 Pair / ' | replace: '3Pairs-', '3 Pairs / '
+    assign clean_value = clean_value | replace: '-Short-', ' / Short / ' | replace: '-Long-', ' / Long / '
+    assign clean_value = clean_value | replace: '-Short', ' / Short' | replace: '-Long', ' / Long'
+    assign clean_value = clean_value | replace: '+', ' + '
+    assign clean_value = clean_value | replace: 'Xs', 'XS' | replace: 'Xl', 'XL' | replace: 'Xxl', 'XXL' | replace: '2Xl', '2XL' | replace: '3Xl', '3XL'
+    assign clean_value = clean_value | strip
   -%}
 
   {%- capture input_id -%}
@@ -63,7 +73,7 @@
 
   {%- if picker_type == 'swatch' -%}
     {%- capture help_text -%}
-      <span class="visually-hidden">{{ escaped_value }}</span>
+      <span class="visually-hidden">{{ clean_value | escape }}</span>
       {{ label_unavailable }}
     {%- endcapture -%}
 
@@ -96,7 +106,7 @@
       {{ input_dataset }}
     >
     <label for="{{ input_id }}">
-      {{ value -}}
+      {{ clean_value -}}
       {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
@@ -115,9 +125,9 @@
       {{ input_dataset }}
     >
       {% if option_disabled -%}
-        {{- 'products.product.value_unavailable' | t: option_value: value -}}
+        {{- 'products.product.value_unavailable' | t: option_value: clean_value -}}
       {%- else -%}
-        {{- value -}}
+        {{- clean_value -}}
       {%- endif %}
     </option>
   {%- endif -%}

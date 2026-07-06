@@ -14,6 +14,8 @@
   position: absolute;
   right: 0;
   top: 100%;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .shopify-section-header-sticky .mega-menu__content {
@@ -27,11 +29,16 @@
 .js .mega-menu__content {
   opacity: 0;
   transform: translateY(-1.5rem);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
 }
 
-.mega-menu[open] .mega-menu__content {
+.mega-menu[open] .mega-menu__content,
+.mega-menu:hover .mega-menu__content,
+.mega-menu:focus-within .mega-menu__content {
   opacity: 1;
   transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .mega-menu__list {
@@ -84,4 +91,115 @@
 
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
+}
+
+.coss-mega-menu__content {
+  padding: 0;
+  background: #0f0f0f;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.32);
+}
+
+.coss-mega-menu__inner {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(420px, 1.8fr);
+  gap: 4rem;
+  padding-top: 3.6rem;
+  padding-bottom: 3.6rem;
+}
+
+.coss-mega-menu__inner--simple {
+  grid-template-columns: minmax(260px, 0.8fr) minmax(360px, 1.2fr);
+  align-items: center;
+}
+
+.coss-mega-menu__eyebrow {
+  margin: 0 0 1.4rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.coss-mega-menu__link {
+  display: block;
+  padding: 0.7rem 0;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.55rem;
+  line-height: 1.35;
+}
+
+.coss-mega-menu__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+}
+
+.coss-mega-menu__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.8rem;
+}
+
+.coss-mega-card {
+  position: relative;
+  display: block;
+  min-height: 220px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #1f1f1f;
+  text-decoration: none;
+  color: #fff;
+}
+
+.coss-mega-card__image {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease;
+}
+
+.coss-mega-card:hover .coss-mega-card__image {
+  transform: scale(1.04);
+}
+
+.coss-mega-card span {
+  position: absolute;
+  left: 1.6rem;
+  bottom: 1.4rem;
+  right: 1.6rem;
+  z-index: 1;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.coss-mega-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.62));
+}
+
+.coss-mega-menu__editorial {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  padding: 2.4rem;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.coss-mega-menu__editorial strong,
+.coss-mega-menu__editorial span {
+  display: block;
+}
+
+.coss-mega-menu__editorial strong {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.coss-mega-menu__editorial span {
+  color: rgba(255, 255, 255, 0.7);
 }

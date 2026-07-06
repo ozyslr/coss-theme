@@ -10,101 +10,117 @@
 {
   "sections": {
     "hero": {
-      "type": "rich-text",
+      "type": "coss-hero-slider",
       "blocks": {
-        "hero-caption": {
-          "type": "caption",
+        "slide-performance": {
+          "type": "slide",
           "settings": {
-            "caption": "COSS BOSS",
-            "text_style": "caption-with-letter-spacing"
+            "collection": "performance-socks",
+            "title": "Coss Boss performance socks"
           }
         },
-        "hero-heading": {
-          "type": "heading",
+        "slide-activewear": {
+          "type": "slide",
           "settings": {
-            "heading": "Engineered for everyday movement",
-            "heading_size": "h0"
+            "collection": "activewear-essentials",
+            "title": "Coss Boss activewear essentials"
           }
         },
-        "hero-text": {
-          "type": "text",
+        "slide-socks": {
+          "type": "slide",
           "settings": {
-            "text": "<p>Premium socks and active essentials for everyday movement.</p>"
-          }
-        },
-        "hero-button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop All",
-            "button_link": "shopify://collections/all",
-            "button_style_secondary": false
+            "collection": "socks",
+            "title": "Coss Boss premium socks"
           }
         }
       },
       "block_order": [
-        "hero-caption",
-        "hero-heading",
-        "hero-text",
-        "hero-button"
+        "slide-performance",
+        "slide-activewear",
+        "slide-socks"
       ],
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-4",
-        "full_width": true,
-        "padding_top": 100,
-        "padding_bottom": 100
+        "kicker": "COSS BOSS",
+        "heading": "Engineered for everyday movement",
+        "text": "Premium socks and active essentials for everyday movement.",
+        "button_label_1": "Shop Performance Socks",
+        "button_link_1": "shopify://collections/performance-socks",
+        "button_label_2": "Explore Active Essentials",
+        "button_link_2": "shopify://collections/activewear-essentials"
       }
     },
-    "collection_list": {
-      "type": "collection-list",
+    "trust_bar": {
+      "type": "multicolumn",
       "blocks": {
-        "col-fashion": {
-          "type": "featured_collection",
+        "trust-1": {
+          "type": "column",
           "settings": {
-            "collection": "fashion"
+            "title": "Worldwide shipping",
+            "text": "<p>Active basics delivered with simple, secure checkout.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
-        "col-socks": {
-          "type": "featured_collection",
+        "trust-2": {
+          "type": "column",
           "settings": {
-            "collection": "socks"
+            "title": "Secure checkout",
+            "text": "<p>Protected payments for a confident shopping experience.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
-        "col-sportswear": {
-          "type": "featured_collection",
+        "trust-3": {
+          "type": "column",
           "settings": {
-            "collection": "sportswear"
+            "title": "Easy support",
+            "text": "<p>Clear assistance before and after your order.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "trust-4": {
+          "type": "column",
+          "settings": {
+            "title": "Premium active basics",
+            "text": "<p>Designed for movement, comfort and daily rotation.</p>",
+            "link_label": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "col-fashion",
-        "col-socks",
-        "col-sportswear"
+        "trust-1",
+        "trust-2",
+        "trust-3",
+        "trust-4"
       ],
       "settings": {
-        "title": "Shop by Category",
-        "heading_size": "h1",
-        "image_ratio": "portrait",
-        "columns_desktop": 3,
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
         "color_scheme": "scheme-1",
-        "show_view_all": true,
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 60,
-        "padding_bottom": 36
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
-    "featured_collection": {
+    "performance_socks": {
       "type": "featured-collection",
       "settings": {
-        "collection": "best-sellers",
+        "collection": "performance-socks",
         "products_to_show": 8,
-        "title": "Best Sellers",
+        "title": "Performance Socks",
         "heading_size": "h1",
-        "description": "",
-        "show_description": false,
+        "description": "Grip, comfort and everyday training support for active routines.",
+        "show_description": true,
         "description_style": "body",
         "columns_desktop": 4,
         "enable_desktop_slider": false,
@@ -119,71 +135,113 @@
         "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 60
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
-    "brand_values": {
-      "type": "multicolumn",
+    "editorial_movement": {
+      "type": "rich-text",
       "blocks": {
-        "value-1": {
-          "type": "column",
+        "caption": {
+          "type": "caption",
           "settings": {
-            "title": "Breathable Comfort",
-            "text": "<p>Technically advanced yarns for all-day freshness.</p>",
-            "link_label": "",
-            "link": ""
+            "caption": "BUILT FOR EVERYDAY MOVEMENT",
+            "text_style": "caption-with-letter-spacing"
           }
         },
-        "value-2": {
-          "type": "column",
+        "heading": {
+          "type": "heading",
           "settings": {
-            "title": "Reinforced Quality",
-            "text": "<p>Double-stitched seams and high-density cotton.</p>",
-            "link_label": "",
-            "link": ""
+            "heading": "Premium essentials for studio, training and daily life.",
+            "heading_size": "h1"
           }
         },
-        "value-3": {
-          "type": "column",
+        "text": {
+          "type": "text",
           "settings": {
-            "title": "Everyday Fit",
-            "text": "<p>Designed to move with you, from work to workout.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "value-4": {
-          "type": "column",
-          "settings": {
-            "title": "Easy Returns",
-            "text": "<p>30-day hassle-free returns policy worldwide.</p>",
-            "link_label": "",
-            "link": ""
+            "text": "<p>Coss Boss brings together socks, activewear and small movement essentials with a clean premium look and a comfort-first approach.</p>"
           }
         }
       },
       "block_order": [
-        "value-1",
-        "value-2",
-        "value-3",
-        "value-4"
+        "caption",
+        "heading",
+        "text"
       ],
       "settings": {
-        "title": "Why Coss Boss",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "activewear_essentials": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "activewear-essentials",
+        "products_to_show": 8,
+        "title": "Activewear Essentials",
         "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
+        "description": "Clean active sets, leggings, shorts and tops for everyday movement.",
+        "show_description": true,
+        "description_style": "body",
         "columns_desktop": 4,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-2",
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "movement_categories": {
+      "type": "collection-list",
+      "blocks": {
+        "studio": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "performance-socks"
+          }
+        },
+        "football": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "socks"
+          }
+        },
+        "active": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "activewear-essentials"
+          }
+        }
+      },
+      "block_order": [
+        "studio",
+        "football",
+        "active"
+      ],
+      "settings": {
+        "title": "Shop by movement",
+        "heading_size": "h1",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": true,
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "newsletter": {
@@ -222,9 +280,11 @@
   },
   "order": [
     "hero",
-    "collection_list",
-    "featured_collection",
-    "brand_values",
+    "trust_bar",
+    "performance_socks",
+    "editorial_movement",
+    "activewear_essentials",
+    "movement_categories",
     "newsletter"
   ]
 }
