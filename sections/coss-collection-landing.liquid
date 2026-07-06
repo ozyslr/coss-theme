@@ -1,0 +1,212 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .coss-collection-landing__panel {
+    overflow: hidden;
+    border-radius: 2.4rem;
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+  }
+
+  .coss-collection-landing__content {
+    display: grid;
+    gap: 2rem;
+    padding: 2.4rem;
+  }
+
+  .coss-collection-landing__eyebrow {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.72;
+  }
+
+  .coss-collection-landing__title {
+    margin: 0;
+    color: inherit;
+  }
+
+  .coss-collection-landing__copy {
+    margin: 1rem 0 0;
+    max-width: 68rem;
+    opacity: 0.76;
+  }
+
+  .coss-collection-landing__pills,
+  .coss-collection-landing__tiles {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .coss-collection-landing__pill,
+  .coss-collection-landing__tile {
+    border: 1px solid rgba(var(--color-background), 0.18);
+    border-radius: 999px;
+    padding: 1rem 1.4rem;
+    color: inherit;
+  }
+
+  .coss-collection-landing__tile {
+    border-radius: 1.6rem;
+    background:
+      linear-gradient(135deg, rgba(var(--color-background), 0.14), rgba(var(--color-background), 0.04));
+  }
+
+  .coss-collection-landing__tile strong {
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .coss-collection-landing__tile span {
+    opacity: 0.72;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .coss-collection-landing__content {
+      grid-template-columns: 1.45fr 1fr;
+      padding: 4rem;
+      align-items: end;
+    }
+
+    .coss-collection-landing__pills {
+      grid-template-columns: repeat(3, max-content);
+    }
+
+    .coss-collection-landing__tiles {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign collection_title = collection.title
+  assign landing_heading = collection_title
+  assign landing_copy = 'Premium active basics for training, travel and everyday rotation.'
+  assign tile_one = 'Clean comfort'
+  assign tile_one_copy = 'Soft, easy-to-wear essentials.'
+  assign tile_two = 'Active ready'
+  assign tile_two_copy = 'Selected for movement and daily use.'
+  assign tile_three = 'Premium edit'
+  assign tile_three_copy = 'A cleaner Coss Boss shopping experience.'
+  assign tile_four = 'Easy styling'
+  assign tile_four_copy = 'Simple pieces that fit the rotation.'
+
+  case collection.handle
+    when 'performance-socks'
+      assign landing_heading = 'Performance Socks'
+      assign landing_copy = 'Grip socks and athletic pairs selected for studio, football, gym and daily movement.'
+      assign tile_one = 'Studio grip'
+      assign tile_one_copy = 'Pilates and training comfort.'
+      assign tile_two = 'Football focus'
+      assign tile_two_copy = 'Grip-led options for sharper sessions.'
+      assign tile_three = 'Clean rotation'
+      assign tile_three_copy = 'Everyday pairs with premium styling.'
+      assign tile_four = 'Colour energy'
+      assign tile_four_copy = 'Bold socks for active looks.'
+    when 'activewear-essentials'
+      assign landing_heading = 'Activewear Essentials'
+      assign landing_copy = 'Soft athletic layers, seamless sets and clean training pieces for modern movement.'
+      assign tile_one = 'Studio movement'
+      assign tile_one_copy = 'Yoga, Pilates and low-impact days.'
+      assign tile_two = 'Gym ready'
+      assign tile_two_copy = 'Flexible pieces for training.'
+      assign tile_three = 'Matching sets'
+      assign tile_three_copy = 'Coordinated activewear styling.'
+      assign tile_four = 'Travel comfort'
+      assign tile_four_copy = 'Easy essentials beyond workouts.'
+    when 'socks'
+      assign landing_heading = 'Socks'
+      assign landing_copy = 'Everyday, colourful and performance socks curated into a cleaner Coss Boss edit.'
+    when 'sportswear'
+      assign landing_heading = 'Sportswear'
+      assign landing_copy = 'Activewear and training essentials with a premium black, soft grey and athletic lifestyle direction.'
+  endcase
+-%}
+
+<section class="coss-collection-landing color-{{ section.settings.color_scheme }}">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="coss-collection-landing__panel">
+      <div class="coss-collection-landing__content">
+        <div>
+          <p class="coss-collection-landing__eyebrow">Coss Boss collection</p>
+          <h1 class="coss-collection-landing__title h0">{{ landing_heading | escape }}</h1>
+          <p class="coss-collection-landing__copy">{{ landing_copy }}</p>
+          <div class="coss-collection-landing__pills" aria-label="Collection highlights">
+            <span class="coss-collection-landing__pill">Premium edit</span>
+            <span class="coss-collection-landing__pill">Active comfort</span>
+            <span class="coss-collection-landing__pill">Everyday rotation</span>
+          </div>
+        </div>
+
+        <div class="coss-collection-landing__tiles">
+          <div class="coss-collection-landing__tile">
+            <strong>{{ tile_one }}</strong>
+            <span>{{ tile_one_copy }}</span>
+          </div>
+          <div class="coss-collection-landing__tile">
+            <strong>{{ tile_two }}</strong>
+            <span>{{ tile_two_copy }}</span>
+          </div>
+          <div class="coss-collection-landing__tile">
+            <strong>{{ tile_three }}</strong>
+            <span>{{ tile_three_copy }}</span>
+          </div>
+          <div class="coss-collection-landing__tile">
+            <strong>{{ tile_four }}</strong>
+            <span>{{ tile_four_copy }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Coss collection landing",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Coss collection landing"
+    }
+  ]
+}
+{% endschema %}
