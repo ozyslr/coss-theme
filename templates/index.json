@@ -12,41 +12,49 @@
     "hero": {
       "type": "coss-hero-slider",
       "blocks": {
-        "slide-performance": {
+        "slide-studio": {
           "type": "slide",
           "settings": {
-            "collection": "performance-socks",
-            "title": "Coss Boss performance socks"
+            "collection": "studio-movement",
+            "title": "Coss Boss studio movement essentials"
+          }
+        },
+        "slide-football": {
+          "type": "slide",
+          "settings": {
+            "collection": "football-training",
+            "title": "Coss Boss football training grip socks"
           }
         },
         "slide-activewear": {
           "type": "slide",
           "settings": {
             "collection": "activewear-essentials",
-            "title": "Coss Boss activewear essentials"
+            "title": "Coss Boss premium activewear essentials"
           }
         },
-        "slide-socks": {
+        "slide-everyday": {
           "type": "slide",
           "settings": {
-            "collection": "socks",
-            "title": "Coss Boss premium socks"
+            "collection": "everyday-rotation",
+            "title": "Coss Boss everyday sock rotation"
           }
         }
       },
       "block_order": [
-        "slide-performance",
+        "slide-studio",
+        "slide-football",
         "slide-activewear",
-        "slide-socks"
+        "slide-everyday"
       ],
       "settings": {
-        "kicker": "COSS BOSS",
-        "heading": "Engineered for everyday movement",
-        "text": "Premium socks and active essentials for everyday movement.",
-        "button_label_1": "Shop Performance Socks",
-        "button_link_1": "shopify://collections/performance-socks",
-        "button_label_2": "Explore Active Essentials",
-        "button_link_2": "shopify://collections/activewear-essentials"
+        "kicker": "PREMIUM & ACTIVE BASICS",
+        "heading": "Move better. Look sharper. Every day.",
+        "text": "Premium socks, grip essentials and clean activewear designed for studio, football, travel and everyday rotation.",
+        "button_label_1": "Shop New Essentials",
+        "button_link_1": "shopify://collections/studio-movement",
+        "button_label_2": "Explore Football Grip",
+        "button_link_2": "shopify://collections/football-training"
       }
     },
     "trust_bar": {
@@ -55,8 +63,8 @@
         "trust-1": {
           "type": "column",
           "settings": {
-            "title": "Worldwide shipping",
-            "text": "<p>Active basics delivered with simple, secure checkout.</p>",
+            "title": "Premium active basics",
+            "text": "<p>Clean essentials built for studio, training and everyday movement.</p>",
             "link_label": "",
             "link": ""
           }
@@ -64,8 +72,8 @@
         "trust-2": {
           "type": "column",
           "settings": {
-            "title": "Secure checkout",
-            "text": "<p>Protected payments for a confident shopping experience.</p>",
+            "title": "Grip & comfort focus",
+            "text": "<p>Socks and movement pieces selected around comfort, control and daily use.</p>",
             "link_label": "",
             "link": ""
           }
@@ -73,8 +81,8 @@
         "trust-3": {
           "type": "column",
           "settings": {
-            "title": "Easy support",
-            "text": "<p>Clear assistance before and after your order.</p>",
+            "title": "Easy secure checkout",
+            "text": "<p>Simple checkout with a clean shopping journey across mobile and desktop.</p>",
             "link_label": "",
             "link": ""
           }
@@ -82,8 +90,8 @@
         "trust-4": {
           "type": "column",
           "settings": {
-            "title": "Premium active basics",
-            "text": "<p>Designed for movement, comfort and daily rotation.</p>",
+            "title": "Curated rotation",
+            "text": "<p>Studio, football, activewear and everyday essentials in one premium system.</p>",
             "link_label": "",
             "link": ""
           }
@@ -118,19 +126,19 @@
         "studio": {
           "type": "card",
           "settings": {
-            "collection": "performance-socks",
+            "collection": "studio-movement",
             "kicker": "STUDIO MOVEMENT",
-            "title": "Pilates, barre and studio grip.",
-            "text": "Soft grip socks for clean movement and confident studio sessions."
+            "title": "Grip socks for clean studio control.",
+            "text": "Pilates, barre and yoga essentials with a premium Coss Boss finish."
           }
         },
         "football": {
           "type": "card",
           "settings": {
-            "collection": "socks",
+            "collection": "football-training",
             "kicker": "FOOTBALL TRAINING",
-            "title": "Grip for high-movement days.",
-            "text": "Training socks made for pace, control and active routines."
+            "title": "Grip for explosive movement.",
+            "text": "Training socks and match-day essentials built for pace, control and comfort."
           }
         },
         "activewear": {
@@ -138,17 +146,17 @@
           "settings": {
             "collection": "activewear-essentials",
             "kicker": "ACTIVEWEAR",
-            "title": "Clean sets for everyday training.",
-            "text": "Leggings, shorts, tops and coordinated pieces for active days."
+            "title": "Clean sets for active days.",
+            "text": "Leggings, shorts, tops and coordinated movement essentials."
           }
         },
-        "colorful": {
+        "everyday": {
           "type": "card",
           "settings": {
-            "collection": "socks",
-            "kicker": "COLORFUL ROTATION",
+            "collection": "everyday-rotation",
+            "kicker": "EVERYDAY ROTATION",
             "title": "Daily socks with personality.",
-            "text": "Colorful multipacks for smart casual, gifting and everyday wear."
+            "text": "Color, comfort and premium basics for work, travel, gifting and daily outfits."
           }
         }
       },
@@ -156,27 +164,27 @@
         "studio",
         "football",
         "activewear",
-        "colorful"
+        "everyday"
       ],
       "settings": {
         "kicker": "SHOP BY MOVEMENT",
-        "heading": "One brand for studio, training and everyday movement.",
-        "text": "Coss Boss brings together premium socks and active essentials with a clean, modern look designed for daily rotation.",
+        "heading": "A premium active system for every part of your day.",
+        "text": "Coss Boss brings together studio grip, football performance, everyday socks and clean activewear in one sharp, easy-to-shop storefront.",
         "color_scheme": "scheme-1"
       }
     },
-    "performance_socks": {
+    "studio_movement": {
       "type": "featured-collection",
       "settings": {
-        "collection": "performance-socks",
+        "collection": "studio-movement",
         "products_to_show": 8,
-        "title": "Performance Socks",
+        "title": "Studio Movement",
         "heading_size": "h1",
-        "description": "Grip, comfort and everyday training support for active routines.",
+        "description": "Pilates, barre and yoga grip essentials for clean movement and confident studio sessions.",
         "show_description": true,
         "description_style": "body",
         "columns_desktop": 4,
-        "enable_desktop_slider": false,
+        "enable_desktop_slider": true,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "outline",
@@ -187,9 +195,90 @@
         "show_rating": false,
         "quick_add": "standard",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 56,
-        "padding_bottom": 56
+        "swipe_on_mobile": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "football_training": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "football-training",
+        "products_to_show": 8,
+        "title": "Football Training",
+        "heading_size": "h1",
+        "description": "Grip socks and training pieces designed for pace, movement and match-day control.",
+        "show_description": true,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "activewear_essentials": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "activewear-essentials",
+        "products_to_show": 8,
+        "title": "Activewear Essentials",
+        "heading_size": "h1",
+        "description": "Clean active sets, leggings, shorts and tops for everyday movement.",
+        "show_description": true,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "everyday_rotation": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "everyday-rotation",
+        "products_to_show": 8,
+        "title": "Everyday Rotation",
+        "heading_size": "h1",
+        "description": "Premium daily socks, colorful multipacks and gifting essentials for the weekly rotation.",
+        "show_description": true,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "editorial_movement": {
@@ -198,21 +287,21 @@
         "caption": {
           "type": "caption",
           "settings": {
-            "caption": "BUILT FOR EVERYDAY MOVEMENT",
+            "caption": "PREMIUM & ACTIVE BASICS",
             "text_style": "caption-with-letter-spacing"
           }
         },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Premium essentials for studio, training and daily life.",
+            "heading": "Designed for movement. Styled for everyday life.",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Coss Boss brings together socks, activewear and small movement essentials with a clean premium look and a comfort-first approach.</p>"
+            "text": "<p>Build your weekly rotation with Coss Boss essentials: grip socks for studio, performance socks for training, clean activewear and premium daily socks.</p>"
           }
         }
       },
@@ -230,46 +319,19 @@
         "padding_bottom": 72
       }
     },
-    "activewear_essentials": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "activewear-essentials",
-        "products_to_show": 8,
-        "title": "Activewear Essentials",
-        "heading_size": "h1",
-        "description": "Clean active sets, leggings, shorts and tops for everyday movement.",
-        "show_description": true,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "outline",
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 56,
-        "padding_bottom": 56
-      }
-    },
     "movement_categories": {
       "type": "collection-list",
       "blocks": {
         "studio": {
           "type": "featured_collection",
           "settings": {
-            "collection": "performance-socks"
+            "collection": "studio-movement"
           }
         },
         "football": {
           "type": "featured_collection",
           "settings": {
-            "collection": "socks"
+            "collection": "football-training"
           }
         },
         "active": {
@@ -277,18 +339,25 @@
           "settings": {
             "collection": "activewear-essentials"
           }
+        },
+        "everyday": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "everyday-rotation"
+          }
         }
       },
       "block_order": [
         "studio",
         "football",
-        "active"
+        "active",
+        "everyday"
       ],
       "settings": {
         "title": "Shop by movement",
         "heading_size": "h1",
         "image_ratio": "portrait",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "show_view_all": true,
         "columns_mobile": "1",
@@ -310,7 +379,7 @@
         "newsletter-text": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Sign up for early access to drops and members-only offers.</p>"
+            "text": "<p>Sign up for early access to new drops, studio packs, football grip socks and members-only offers.</p>"
           }
         },
         "newsletter-form": {
@@ -335,9 +404,11 @@
     "hero",
     "trust_bar",
     "editorial_grid",
-    "performance_socks",
-    "editorial_movement",
+    "studio_movement",
+    "football_training",
     "activewear_essentials",
+    "everyday_rotation",
+    "editorial_movement",
     "movement_categories",
     "newsletter"
   ]

@@ -1,0 +1,206 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .coss-product-story {
+    border-top: 1px solid rgba(var(--color-foreground), 0.08);
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .coss-product-story__inner {
+    display: grid;
+    gap: 1.6rem;
+  }
+
+  .coss-product-story__eyebrow {
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.72;
+  }
+
+  .coss-product-story__heading {
+    margin: 0;
+    max-width: 72rem;
+  }
+
+  .coss-product-story__intro {
+    max-width: 72rem;
+    margin: 0;
+    color: rgba(var(--color-foreground), 0.72);
+  }
+
+  .coss-product-story__grid,
+  .coss-product-story__trust {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .coss-product-story__card,
+  .coss-product-story__trust-item,
+  .coss-product-story__note {
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    border-radius: 1.8rem;
+    background: rgba(var(--color-background), 0.82);
+    padding: 1.8rem;
+  }
+
+  .coss-product-story__card h3,
+  .coss-product-story__note h3 {
+    margin: 0 0 0.8rem;
+    font-size: 1.5rem;
+  }
+
+  .coss-product-story__card p,
+  .coss-product-story__note p,
+  .coss-product-story__trust-item p {
+    margin: 0;
+    color: rgba(var(--color-foreground), 0.72);
+  }
+
+  .coss-product-story__trust-item strong {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .coss-product-story__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .coss-product-story__trust {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .coss-product-story__notes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign product_title_downcase = product.title | downcase
+  assign story_heading = 'Premium everyday performance, made simple.'
+  assign story_intro = 'Coss Boss pieces are selected for clean styling, comfort and active everyday use — from training sessions to travel days.'
+
+  if product_title_downcase contains 'sock'
+    assign story_heading = 'Grip, comfort and clean athletic style.'
+    assign story_intro = 'Built for movement, studio sessions, football training and everyday rotation with a premium Coss Boss finish.'
+  elsif product_title_downcase contains 'activewear' or product_title_downcase contains 'yoga' or product_title_downcase contains 'seamless'
+    assign story_heading = 'A coordinated activewear set with a polished studio look.'
+    assign story_intro = 'Designed for gym, Pilates, yoga and active daily wear with a smooth matching silhouette.'
+  endif
+-%}
+
+<section class="coss-product-story color-{{ section.settings.color_scheme }}">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="coss-product-story__inner">
+      <div>
+        <p class="coss-product-story__eyebrow">Coss Boss product notes</p>
+        <h2 class="coss-product-story__heading h1">{{ story_heading }}</h2>
+      </div>
+
+      <p class="coss-product-story__intro">{{ story_intro }}</p>
+
+      <div class="coss-product-story__grid">
+        <article class="coss-product-story__card">
+          <h3>Comfort-first feel</h3>
+          <p>Soft, flexible and easy to wear through training, travel and everyday movement.</p>
+        </article>
+        <article class="coss-product-story__card">
+          <h3>Clean premium styling</h3>
+          <p>Minimal branding, refined colour selection and a more elevated storefront presentation.</p>
+        </article>
+        <article class="coss-product-story__card">
+          <h3>Active rotation ready</h3>
+          <p>Made to work across studio, gym, football, casual and weekend essentials.</p>
+        </article>
+      </div>
+
+      <div class="coss-product-story__notes">
+        <article class="coss-product-story__note">
+          <h3>Fit note</h3>
+          <p>Check the selected size and colour before checkout. For activewear, choose your usual size for a close athletic fit.</p>
+        </article>
+        <article class="coss-product-story__note">
+          <h3>Care guide</h3>
+          <p>Wash cold with similar colours. Avoid bleach and high heat to help preserve shape, grip and fabric finish.</p>
+        </article>
+      </div>
+
+      <div class="coss-product-story__trust">
+        <div class="coss-product-story__trust-item">
+          <strong>Secure checkout</strong>
+          <p>Protected payment experience.</p>
+        </div>
+        <div class="coss-product-story__trust-item">
+          <strong>Easy returns</strong>
+          <p>Simple return support.</p>
+        </div>
+        <div class="coss-product-story__trust-item">
+          <strong>Everyday tested</strong>
+          <p>Selected for repeat wear.</p>
+        </div>
+        <div class="coss-product-story__trust-item">
+          <strong>Coss Boss style</strong>
+          <p>Premium active basics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Coss product story",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Coss product story"
+    }
+  ]
+}
+{% endschema %}
